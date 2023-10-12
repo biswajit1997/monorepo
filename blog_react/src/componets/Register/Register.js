@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(process.env.REACT_BACKEND_URL + "/register", userSignUp)
+      .post("http://43.204.79.189:8090/api/register", userSignUp)
       .then(function (response) {
         console.log(response.data);
         history.push("/login");
