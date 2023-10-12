@@ -72,7 +72,7 @@ const Posts = (props) => {
   //get all tags
   useEffect(() => {
     axios
-      .get(process.env.REACT_BACKEND_URL + "/addtag")
+      .get("http://43.204.79.189:8090/api/addtag")
       .then(function (response) {
         // console.log(response.data);
         setTags(response.data);
@@ -88,7 +88,7 @@ const Posts = (props) => {
     let id = localStorage.getItem("id");
 
     axios
-      .post(process.env.REACT_BACKEND_URL + "/addpost", { post })
+      .post("http://43.204.79.189:8090/api/addpost", { post })
       .then(function (response) {
         console.log(response.data);
         window.location.reload();
@@ -102,7 +102,7 @@ const Posts = (props) => {
     const fetch = () => {
       setLoading(true);
       axios
-        .get(process.env.REACT_BACKEND_URL + "/addpost")
+        .get("http://43.204.79.189:8090/api/addpost")
         .then(function (response) {
           // console.log(response.data);
           setPosts(response.data);
@@ -123,7 +123,7 @@ const Posts = (props) => {
     try {
       let id = localStorage.getItem("id");
 
-      const { data } = await axios.post(process.env.REACT_BACKEND_URL + "/userpay", {
+      const { data } = await axios.post("http://43.204.79.189:8090/api/userpay", {
         id,
       });
       console.log("res", data);
