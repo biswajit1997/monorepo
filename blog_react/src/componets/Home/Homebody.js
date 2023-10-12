@@ -37,7 +37,7 @@ const Posts = (props) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/filter", { idd })
+      .post(process.env.REACT_BACKEND_URL + "/filter", { idd })
       .then(function (response) {
         console.log(response.data);
         // setPostData(response.data);
@@ -60,7 +60,7 @@ const Posts = (props) => {
 
     try {
       const { response } = await axios.post(
-        "http://localhost:8000/api/addtag",
+        process.env.REACT_BACKEND_URL + "/addtag",
         tag
       );
     } catch (error) {
@@ -72,7 +72,7 @@ const Posts = (props) => {
   //get all tags
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/addtag")
+      .get(process.env.REACT_BACKEND_URL + "/addtag")
       .then(function (response) {
         // console.log(response.data);
         setTags(response.data);
@@ -88,7 +88,7 @@ const Posts = (props) => {
     let id = localStorage.getItem("id");
 
     axios
-      .post("http://localhost:8000/api/addpost", { post })
+      .post(process.env.REACT_BACKEND_URL + "/addpost", { post })
       .then(function (response) {
         console.log(response.data);
         window.location.reload();
@@ -102,7 +102,7 @@ const Posts = (props) => {
     const fetch = () => {
       setLoading(true);
       axios
-        .get("http://localhost:8000/api/addpost")
+        .get(process.env.REACT_BACKEND_URL + "/addpost")
         .then(function (response) {
           // console.log(response.data);
           setPosts(response.data);
@@ -123,7 +123,7 @@ const Posts = (props) => {
     try {
       let id = localStorage.getItem("id");
 
-      const { data } = await axios.post("http://localhost:8000/api/userpay", {
+      const { data } = await axios.post(process.env.REACT_BACKEND_URL + "/userpay", {
         id,
       });
       console.log("res", data);

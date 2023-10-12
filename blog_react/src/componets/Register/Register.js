@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/register", userSignUp)
+      .post(process.env.REACT_BACKEND_URL + "/register", userSignUp)
       .then(function (response) {
         console.log(response.data);
         history.push("/login");
