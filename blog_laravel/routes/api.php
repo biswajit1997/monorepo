@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test',function(){
-	return "Biswajit Das";
+	return "Biswajit oye";
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
