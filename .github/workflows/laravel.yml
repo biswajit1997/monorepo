@@ -31,4 +31,4 @@ jobs:
         run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && php artisan optimize:clear
 
       - name: Trigger server update
-        run: curl -X POST http://43.204.79.189/pull.sh
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && sh /var/www/html/monorepo/pull.sh
