@@ -24,9 +24,6 @@ jobs:
       - name: Install Dependencies
         run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && composer install
 
-      - name: Generate application key
-        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && php artisan key:generate
-
       - name: Set directory permissions
         run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && chmod -R 777 storage bootstrap/cache
 
