@@ -1,0 +1,31 @@
+name: Laravel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  laravel-tests:
+    runs-on: self-hosted
+
+    steps:
+      - name: Set up PHP
+        uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '7.4'
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Copy .env file if not present
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Install Dependencies
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && composer install
+
+      - name: Set directory permissions
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && chmod -R 777 storage bootstrap/cache
+
+      - name: Clear application cache
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && php artisan optimize:clear
