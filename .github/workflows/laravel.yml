@@ -2,7 +2,8 @@ name: Laravel
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   laravel-tests:
@@ -21,15 +22,13 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: ./blog_laravel/composer install
+        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/composer install
 
       - name: Generate application key
-        run: ./blog_laravel/php artisan key:generate
+        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/php artisan key:generate
 
       - name: Set directory permissions
-        run: ./blog_laravel/chmod -R 777 storage bootstrap/cache
+        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/chmod -R 777 storage bootstrap/cache
 
       - name: Clear application cache
-        run: ./blog_laravel/php artisan optimize:clear
-
-     
+        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/php artisan optimize:clear
