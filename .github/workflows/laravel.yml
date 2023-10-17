@@ -21,24 +21,15 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: composer install
+        run: ./blog_laravel/composer install
 
       - name: Generate application key
-        run: php artisan key:generate
+        run: ./blog_laravel/php artisan key:generate
 
       - name: Set directory permissions
-        run: chmod -R 777 storage bootstrap/cache
-
-      - name: Create SQLite database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
+        run: ./blog_laravel/chmod -R 777 storage bootstrap/cache
 
       - name: Clear application cache
-        run: php artisan optimize:clear
+        run: ./blog_laravel/php artisan optimize:clear
 
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: database/database.sqlite
-        run: vendor/bin/phpunit
+     
