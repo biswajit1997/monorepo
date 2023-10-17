@@ -22,13 +22,13 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/composer install
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && composer install
 
       - name: Generate application key
-        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/php artisan key:generate
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && php artisan key:generate
 
       - name: Set directory permissions
-        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/chmod -R 777 storage bootstrap/cache
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && chmod -R 777 storage bootstrap/cache
 
       - name: Clear application cache
-        run: /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel/php artisan optimize:clear
+        run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && php artisan optimize:clear
