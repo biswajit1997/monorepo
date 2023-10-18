@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test',function(){
-	return "God 353 ====>>> djjjj";
+	return "Test Biswajit";
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
