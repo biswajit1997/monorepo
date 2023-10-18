@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test',function(){
-	return "God 33";
+	return "God 323";
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
