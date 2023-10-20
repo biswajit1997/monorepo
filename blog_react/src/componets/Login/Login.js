@@ -56,7 +56,7 @@ const Login = () => {
         <Col lg="6">
           <Card body className=" mt-5">
             <CardTitle className="text-center">
-              <h3>Login</h3>
+              <h3>Login Demo</h3>
             </CardTitle>
             <CardText>
               <form className="white" onSubmit={handleSubmit}>
