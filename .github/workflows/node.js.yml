@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.21.3.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,4 +27,4 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Trigger server update
-      run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_laravel && sh /var/www/html/monorepo/pull.sh
+      run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_react && sh /var/www/html/monorepo/pull.sh
