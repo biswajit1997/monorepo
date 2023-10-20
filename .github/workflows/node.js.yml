@@ -1,11 +1,9 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: React.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -14,17 +12,25 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [14.x, 16.x, 18.x]
+        # Add more Node.js versions as needed.
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build if present
+      run: npm run build --if-present
+
     - name: Trigger server update
-      run: cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_react && sh /var/www/html/monorepo/pull.sh
+      run: |
+        cd /var/www/html/monorepo/actions-runner/_work/monorepo/monorepo/blog_react
+        sh /var/www/html/monorepo/pull.sh
