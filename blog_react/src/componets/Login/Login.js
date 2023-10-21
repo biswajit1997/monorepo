@@ -28,7 +28,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://43.204.79.189:8090/api/login", userSign)
+      .post("https://devawstest.in.net/api/login", userSign)
       .then(function (response) {
         if (response.data.error) {
           alert("Invalid user id and password");

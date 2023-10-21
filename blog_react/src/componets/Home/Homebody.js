@@ -72,7 +72,7 @@ const Posts = (props) => {
   //get all tags
   useEffect(() => {
     axios
-      .get("http://43.204.79.189:8090/api/addtag")
+      .get("https://devawstest.in.net/api/addtag")
       .then(function (response) {
         // console.log(response.data);
         setTags(response.data);
@@ -88,7 +88,7 @@ const Posts = (props) => {
     let id = localStorage.getItem("id");
 
     axios
-      .post("http://43.204.79.189:8090/api/addpost", { post })
+      .post("https://devawstest.in.net/api/addpost", { post })
       .then(function (response) {
         console.log(response.data);
         window.location.reload();
@@ -102,7 +102,7 @@ const Posts = (props) => {
     const fetch = () => {
       setLoading(true);
       axios
-        .get("http://43.204.79.189:8090/api/addpost")
+        .get("https://devawstest.in.net/api/addpost")
         .then(function (response) {
           // console.log(response.data);
           setPosts(response.data);
@@ -123,7 +123,7 @@ const Posts = (props) => {
     try {
       let id = localStorage.getItem("id");
 
-      const { data } = await axios.post("http://43.204.79.189:8090/api/userpay", {
+      const { data } = await axios.post("https://devawstest.in.net/api/userpay", {
         id,
       });
       console.log("res", data);

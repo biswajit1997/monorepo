@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://43.204.79.189:8090/api/register", userSignUp)
+      .post("https://devawstest.in.net/api/register", userSignUp)
       .then(function (response) {
         console.log(response.data);
         history.push("/login");

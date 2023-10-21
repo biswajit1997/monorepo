@@ -11,7 +11,7 @@ const PostDetails = () => {
   //   console.log(details.id);
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/comments", { id })
+      .post("https://devawstest.in.net/api/comments", { id })
       .then(function (response) {
         setDetails(response.data);
         // console.log(details[0]);
@@ -25,7 +25,7 @@ const PostDetails = () => {
   //   console.log(data.id);
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/postdetails", { id })
+      .post("https://devawstest.in.net/api/postdetails", { id })
       .then(function (response) {
         setdata(response.data);
       })
@@ -54,7 +54,7 @@ const PostDetails = () => {
     setSaveData({ ...saveData, user_id: id });
 
     axios
-      .post("http://localhost:8000/api/comment", {
+      .post("https://devawstest.in.net/api/comment", {
         saveData,
       })
       .then((response) => {
