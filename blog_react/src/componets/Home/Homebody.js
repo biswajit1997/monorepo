@@ -37,7 +37,7 @@ const Posts = (props) => {
 
   useEffect(() => {
     axios
-      .post(process.env.REACT_BACKEND_URL + "/filter", { idd })
+      .post("https://devawstest.in.net/api/filter", { idd })
       .then(function (response) {
         console.log(response.data);
         // setPostData(response.data);
@@ -60,7 +60,7 @@ const Posts = (props) => {
 
     try {
       const { response } = await axios.post(
-        process.env.REACT_BACKEND_URL + "/addtag",
+        "https://devawstest.in.net/api" + "/addtag",
         tag
       );
     } catch (error) {

@@ -11,7 +11,7 @@ const Stripe = () => {
 
     const id = localStorage.getItem("id");
     axios
-      .post("http://localhost:8000/api/stripe", { id })
+      .post("https://devawstest.in.net/api/stripe", { id })
       .then(function (response) {
         console.log(response.data);
         history.push("/home");
