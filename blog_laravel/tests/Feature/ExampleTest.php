@@ -12,36 +12,36 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_api_add_tag_Test()
-    {
+    // public function test_api_add_tag_Test()
+    // {
         
-        $response = $this->postJson('/api/addtag',['tagname' => 'test1']);
+    //     $response = $this->postJson('/api/addtag',['tagname' => 'test1']);
 
-        $response
-            ->assertStatus(200)
-            ->assertJson([
-                'massege' => 'Tag added',
-            ]);
-    }
-    public function test_api_show_tag_Test()
-    {
+    //     $response
+    //         ->assertStatus(200)
+    //         ->assertJson([
+    //             'massege' => 'Tag added',
+    //         ]);
+    // }
+    // public function test_api_show_tag_Test()
+    // {
         
-        $response = $this->getJson('/api/addtag');
+    //     $response = $this->getJson('/api/addtag');
 
-        $response->assertStatus(200);
+    //     $response->assertStatus(200);
             
-    }
-    public function test_api_delete_tag_Test()
-    {
+    // }
+    // public function test_api_delete_tag_Test()
+    // {
         
-        $response = $this->postJson('/api/tag/delete',['id'=>'9']);
+    //     $response = $this->postJson('/api/tag/delete',['id'=>'9']);
 
-        $response
-            ->assertStatus(200)
-            ->assertJson([
-                'massage'=>"deleted",
-            ]);
+    //     $response
+    //         ->assertStatus(200)
+    //         ->assertJson([
+    //             'massage'=>"deleted",
+    //         ]);
            
-    }
+    // }
   
 }

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test',function(){
 	return "Test shhh---";
 });
+
+Route::post('/chat', 'ChatController@chat');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
