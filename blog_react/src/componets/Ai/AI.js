@@ -27,7 +27,7 @@ const Ai = () => {
     const handleSubmit = () => {
         setLoading(true);
 
-        axios.post("http://127.0.0.1:8000/api/chat", { message: userInput })
+        axios.post("https://devawstest.in.net/api/chat", { message: userInput })
             .then(function (response) {
                 if (response.data) {
                     setLoadingMessage(response.data.message);
