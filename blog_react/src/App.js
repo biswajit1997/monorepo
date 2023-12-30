@@ -10,6 +10,7 @@ import Stripe from "./componets/Home/Stripe";
 import PostDetails from "./componets/Home/PostDetails";
 import Navbar from "./componets/Home/Navbar";
 import Head from "./componets/Main/Head";
+import Ai from "./componets/Ai/AI";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       <Router>
         <Route exact path="/">
           <Head />
+        </Route>
+        <Route exact path="/ai">
+          <Ai />
         </Route>
         <Route exact path="/login">
           <Header />
